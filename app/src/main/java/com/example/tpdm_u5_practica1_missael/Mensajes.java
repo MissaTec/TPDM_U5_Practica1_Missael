@@ -41,27 +41,5 @@ public class Mensajes {
         }
         return res;
     }
-
-    public String consultar(String palabra) {
-        try {
-            SQLiteDatabase selec= base.getWritableDatabase();
-            Cursor c = selec.rawQuery("SELECT Mensaje FROM Mensajes WHERE Palabra = " + palabra , null);
-
-            if (c.moveToFirst()==true){
-                String cadena="";
-                do {
-                    String respuesta = c.getString(0);
-
-
-                    cadena += respuesta;
-                }while (c.moveToNext()==true);
-                selec.close();
-            }else {
-
-            }
-        }catch (SQLiteException e){
-
-        }
-        return respuesta;
-    }
+    
 }
